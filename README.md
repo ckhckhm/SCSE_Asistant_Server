@@ -31,3 +31,7 @@
 - 小程序前端： Email: wuming_C@163.com  WeChat: Clownwm
 - 小程序后端： Email: ckhckh85@gmail.com
 
+### 许可证
+[GNU General Public License v3.0](https://github.com/ckhckhm/SCSE_Asistant_Server/blob/master/LICENSE)
+
+Copyright (c) 2019- Kunhong Chan
