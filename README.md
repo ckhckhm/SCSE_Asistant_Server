@@ -1,5 +1,5 @@
 **项目介绍**
-### 这是一个基于Flask的「华软校园助手」小程序后端部分代码(其余代码的实现类似)
+### 这是一个基于Flask的「华软校园助手」小程序部分代码(包含前后端)(其余代码的实现类似)
 
 **扫码体验**
 ![image](https://github.com/ckhckhm/SCSE_Asistant_Server/blob/master/images/gh_01c5bbcc78d2_344.jpg)
