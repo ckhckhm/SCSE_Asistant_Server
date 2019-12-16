@@ -15,6 +15,10 @@
 
 *pip install -r requirements.txt*
 
+**运行**
+
+```python manage.py```
+
 **v1.0.0版本内容**
 > Times: 12/26/2018
 - 略（待补充）
