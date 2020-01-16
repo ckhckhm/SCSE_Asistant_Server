@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/timetable/timetable",
+    "pages/main/exam/exam",
+    "pages/main/attendance/attendance",
+    "pages/user/user",
+    "pages/user/login/login",
+    "pages/user/guide/guide",
+    "pages/user/update/update",
+    "pages/user/feedback/feedback",
+    "pages/user/feedback/feedbackmsg",
+    "pages/main/bill/bill",
+    "pages/main/behavior/behavior",
+    "pages/main/behavior/detail",
+    "pages/user/user/detail",
+    "pages/user/relation/relation"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "pages/image/home.png",
+        "selectedIconPath": "pages/image/select-home.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/image/user.png",
+        "selectedIconPath": "pages/image/select-user.png"
+      }
+    ],
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#6173a1",
+    "borderStyle": "white",
+    "color": "#000000"
+  },
+  "window": {
+    "navigationBarTitleText": "华软校园助手",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#6173a1",
+    "backgroundColor": "#516086"
+  },
+  "networkTimeout": {
+    "request": 60000
+  },
+  "navigateToMiniProgramAppIdList": [
+    ""
+  ],
+  "sitemapLocation": "sitemap.json"
+}

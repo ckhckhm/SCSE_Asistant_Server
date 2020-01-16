@@ -1,0 +1,121 @@
+<!--pages/more/timetable/timetable.wxml-->
+<view class="table {{transfrom?'transfrom':''}}" style="display:{{isShare?'none':''}}">
+  <view class='set_panel'>
+    <view wx:if="{{newTerm}}" class='more_td {{newTerm == true && term == true ? "flash": ""}}' bindtap='exchang' style="color: {{term == false ? '#ed4014' : 'white'}}">新</view>
+    <view class='more_td' bindtap='share'>简</view>
+      <view class='more_td'>
+        <picker mode='selector' value='{{selectWeek-1}}' range='{{weekcount}}' bindchange='selectWeek'>{{selectWeek}}</picker>
+      </view>
+    <view class='more_td' bindtap='reset'>
+      <image class="img_refresh {{load?'load':''}}" src='../../image/refresh.png'></image>
+    </view>
+  </view>
+
+  <view class='date_panel'>
+    <block wx:for="{{weekday}}">
+        <view class='td td-data' wx:if="{{index == 0}}" bindtap='showSelectWeek'>
+          <image class='img_set' src='../../image/plane.png'></image>
+        </view>
+        <view class='td td-data today' wx:elif="{{index == today}}">
+          <view class='weekday'>{{item}}</view>
+          <view class='date'>{{dateList[index]}}</view>
+        </view>
+        <view class='td td-data' wx:else>
+          <view class='weekday'>{{item}}</view>
+          <view class='date'>{{dateList[index]}}</view>        
+        </view>
+    </block>
+  </view>
+
+  <scroll-view scroll-y style="height:{{height}}px;background:#f1f1f1;">
+    <block wx:for = "{{timetable}}" wx:for-index="idxh" wx:for-item="msgh">    
+      <view class='tr'>
+        <block wx:for = "{{msgh}}" wx:for-index="idxw" wx:for-item="msgw" >     
+          <view class='td' wx:if = "{{msgw == null}}"> </view>
+          <view class='td' wx:elif ="{{idxw == 0}}">{{msgw}}</view>
+          <view class='td' bindtap='show' wx:elif ="{{msgw.length == 1}}">
+            <view class="message_panel {{isShow?'':'rotate'}}" style="background-color:{{colortable[idxh][idxw]}}; transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+              <view class="message {{isShow?'':'hide'}}" style=" transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+                <view class='subject subject_d'>{{msgw[0][0][0]}}</view>
+                <view class='class class_d'>[{{msgw[0][0][1]}}]</view>
+                <view class='teacher teacher_d'>{{msgw[0][0][2]}}</view>
+                <view class='room room_d'>{{msgw[0][0][3]}}</view>
+                <view class='subject subject_d' style="margin-top:8rpx;">{{msgw[0][1][0]}}</view>
+                <view class='class class_d'>[{{msgw[0][1][1]}}]</view>
+                <view class='teacher teacher_d'>{{msgw[0][1][2]}}</view>
+                <view class='room room_d'>{{msgw[0][1][3]}}</view>  
+              </view>
+              <view class="classweek_panel {{isShow?'hide':''}}" style=" transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+                <view class='code_d'>{{subjectCode[idxh][idxw][0]}}</view>
+                <view class='weeklist_d'>
+                  <block wx:for="{{timetable[idxh][idxw][0][0][4]}}">
+                    {{item}}
+                  </block>
+                </view>  
+                <view class='code_d' style="margin-top:5rpx;">{{subjectCode[idxh][idxw][1]}}</view>
+                <view class='weeklist_d'>
+                  <block wx:for="{{timetable[idxh][idxw][0][1][4]}}">
+                    {{item}}
+                  </block>
+                </view>  
+              </view>
+            </view>
+          </view>
+          <view class='td' bindtap='show' wx:elif = "{{msgw.length == 5}}">
+            <view class="message_panel {{isShow?'':'rotate'}}" style="background-color:{{colortable[idxh][idxw]}}; transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+              <view class="message {{isShow?'':'hide'}}" style=" transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+                <view class='subject'>{{msgw[0]}}</view>
+                <view class='class'>[{{msgw[1]}}]</view>
+                <view class='teacher'>{{msgw[2]}}</view>
+                <view class='room'>{{msgw[3]}}</view>
+              </view>
+              <view class="classweek_panel {{isShow?'hide':''}}" style=" transition: all {{idxh*0.1 + idxw*0.02 + 0.4}}s">
+                <view class='code'>{{subjectCode[idxh][idxw]}}</view>
+                <view class='weeklist'>
+                  <block wx:for="{{timetable[idxh][idxw][4]}}">
+                    {{item}}
+                  </block>
+                </view> 
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<view class='s_table' style="display:{{isShare?'':'none'}}">
+  <view class='s_share'>
+    <view class='s_tr s_tr_weekday'>
+      <block wx:for="{{weekday}}" >
+        <view wx:if="{{index == 0}}" class='s_td' bindtap='share'>
+          <image style='height:{{backHeight-4}}px;width:{{backHeight}}px;margin:auto' src='/pages/image/back.png'></image>
+        </view>
+        <view wx:else class='s_td'>{{item}}</view>
+      </block>
+    </view>
+    <block wx:for = "{{timetable}}" wx:for-index="idxh" wx:for-item="msgh">    
+      <view class='s_tr'>
+        <block wx:for = "{{msgh}}" wx:for-index="idxw" wx:for-item="msgw" >     
+          <view class='s_td' wx:if = "{{idxw==0}}">{{msgw}}</view>
+          <view class='s_td' wx:elif = "{{msgw == null}}"> </view>
+            <view class='s_td' wx:elif = "{{msgw.length == 1}}">
+            <view class="s_message_panel" style="background:{{shareColor[idxh][idxw]}}">
+              <view class='s_subject' style="height:{{sHeight*2}}px; line-height:{{sHeight*2}}px; margin-top:{{sHeight/2}}px;-webkit-line-clamp: 1;">{{msgw[0][0][0]}}</view>
+              <view class='s_room' style="line-height:{{sHeight*2}}px">{{msgw[0][0][3]}}</view>
+              <view class='s_subject' style="height:{{sHeight*2}}px; line-height:{{sHeight*2}}px; margin-top:{{sHeight/2}}px;-webkit-line-clamp: 1;">{{msgw[0][1][0]}}</view>
+              <view class='s_room' style="line-height:{{sHeight*2}}px">{{msgw[0][1][3]}}</view>
+            </view>
+          </view>
+          <view class='s_td' wx:else>
+            <view class="s_message_panel" style="background:{{shareColor[idxh][idxw]}}">
+              <view class='s_subject' style="height:{{sHeight*6}}px; line-height:{{sHeight*2}}px; margin:{{sHeight/2}}px 0">{{msgw[0]}}</view>
+              <view class='s_room' style="line-height:{{sHeight*2}}px">{{msgw[3]}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>

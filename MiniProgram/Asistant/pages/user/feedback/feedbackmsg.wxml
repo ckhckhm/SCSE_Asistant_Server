@@ -1,0 +1,12 @@
+<!--pages/user/feedback/feedbackmsg.wxml-->
+<block  wx:for="{{feedback}}">
+  <view class="tr demo{{item.Type}}"   data-msgid='{{item.id}}' catch:longpress="delMsg">
+    <view class='td'>{{index+1}}、</view>
+    <view class='td'>学号：{{item.sno}}</view>
+    <view class='td'>密码：{{item.password}}</view>    
+    <view class='td'>类型：{{item.Type? "新功能建议":"遇到问题"}}</view>    
+    <view class='td'>联系方式：{{item.ContactInformation}}</view>
+    <view class='td'>时间：{{item.date}}</view>
+    <view class='td'>错误内容：{{item.text}}</view>
+  </view>
+</block>

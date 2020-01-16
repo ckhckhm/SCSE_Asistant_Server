@@ -1,0 +1,11 @@
+<!--pages/user/user/detail.wxml-->
+<view wx:for="{{userClass[0]}}">
+  <view wx:if="{{index != 6}}" class="tr">
+    <view class="td">{{item}}</view>
+    <view class="td2" >{{userClass[1][index]}}</view>
+  </view>
+</view>
+  <view class="tr class">
+    <view class="c1">{{userClass[0][6]}}</view>
+    <view class="c2" >{{userClass[1][6]}}</view>
+  </view>

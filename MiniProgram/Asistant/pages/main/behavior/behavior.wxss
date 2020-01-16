@@ -1,0 +1,58 @@
+.header{
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: rgb(212, 212, 212);
+  background: #6173a1;
+}
+.body{
+  width: 95%;
+  margin: 20rpx auto 0;
+  padding:10rpx 0 80rpx;  
+  background: white;
+  border-radius: 5rpx;
+}
+.subject_panel{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  color: #585858;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid rgba(0,0,0,0.1) 
+}
+.subject_panel:active{
+  color: #6173a1;
+  background: rgba(0,0,0,0.1)
+}
+.subject_panel:nth-of-type(1){
+  height: 120rpx;
+  line-height: 120rpx;
+  font-weight: bolder;
+  color: #6371a1
+}
+.code{
+  width: 20%;
+  text-align: center;
+}
+.subject{
+  width: 50%;
+  padding: 0 5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grade{
+  width: 20%;
+  text-align: center;
+}
+.grade_no{
+  color: #1a1a1a
+}
+.grade_ex{
+  color: #1099fa
+}
+

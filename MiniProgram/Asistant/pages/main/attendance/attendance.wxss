@@ -1,0 +1,70 @@
+page{
+  
+}
+.header{
+  text-align: center;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.icon{
+  padding: 80rpx 0 50rpx 0;
+}
+.body{
+  width: 90%;
+  margin: auto;
+  padding: 20rpx 0 100rpx;
+  background: linear-gradient(to top,#7786ad,#6173a1);
+  border-radius: 10rpx;
+  margin-bottom: 100rpx;
+}
+.decoration{
+  position: relative;
+  top:40rpx;
+}
+
+.clamp{
+  width: 300rpx;
+  height: 60rpx;
+  margin: auto;
+  background:#6173a1;
+}
+.content{
+  width: 90%;
+  min-height: 750rpx;
+  background: white;
+  margin: auto;
+  padding: 50rpx 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.name,.time{
+  margin:0 0 0 50rpx; 
+}
+.userName,.semester{
+   margin:0 0 0 10rpx;
+   color: #1099fa;
+}
+
+.tr{
+  display: flex;
+  padding: 15rpx 0;
+  color: #585858;
+  border-bottom: 1rpx solid rgba(216, 216, 216, 0.432)
+}
+.tr:nth-of-type(1),.tr:nth-of-type(2){
+  border: none;
+}
+.tr:nth-of-type(3){
+  margin: 50rpx 0 0;
+}
+.td:nth-of-type(2){
+  width: 35%;
+  text-align: center;
+}
+.td:nth-of-type(1){
+  width: 65%;
+  text-indent: 50rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

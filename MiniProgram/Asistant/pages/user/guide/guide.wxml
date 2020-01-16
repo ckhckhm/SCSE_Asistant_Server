@@ -1,0 +1,19 @@
+<!--pages/user/guide/guide.wxml-->
+<view class='body'>
+  <view class='h1'>使用帮助</view>
+  <view class='h2'>1.账号绑定</view>
+  <view class='text'>为了给您提供更精准的数据和更高效的服务,请在首次使用「华软校园助手」小程序时绑定您的myscse账号。</view>
+  <view class='h2'>2.便捷使用</view>
+  <view class='text'>用户可以在「华软校园助手」小程序任一页面点击右上角的菜单按钮，选择“添加到桌面”以创建桌面图标 ,也可以在微信主页下滑小程序列表内长按，选择“添加到我的小程序”</view>
+  <view class='h2'>3.新生初始密码</view>
+  <view class='text'>年级+省份代码+准考证号</view>
+  <view class='text'>如：17+44+0113102383</view>
+  <view class='h2'>4.数据来源</view>
+  <view class='text'>小程序的全部数据来源 API center。</view>
+
+  <view class='h1'>隐私协议</view>
+  <view class='h2'>1.用户微信数据</view>
+  <view class='text'>用户在使用「华软校园助手」小程序部分功能时将可能公开用户部分信息，包括（头像，昵称等）。</view>
+  <view class='h2'>2.myscse数据</view>
+  <view class='text'>开发者承诺不以任何途径向第三方透露用户的myscse数据(除了法定要求或用户自己同意)，并且不在任何服务器保存用户除学号外的myscse隐私数据。</view>
+</view>

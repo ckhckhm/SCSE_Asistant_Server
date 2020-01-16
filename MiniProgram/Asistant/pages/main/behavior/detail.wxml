@@ -1,0 +1,17 @@
+<picker-view class='pick_panel' value="{{idx}}" indicator-class='pick' mask-class='mask' bindchange='select'>
+  <picker-view-column>
+    <view wx:for="{{behavior}}" style="color:{{index==idx?'white':''}}">
+      {{item[1]}}
+    </view>
+  </picker-view-column>
+</picker-view>  
+<view class='show_panel'>
+  <view class='tr' wx:for="{{show}}">
+    <block wx:for="{{item}}">
+      <view class='td' wx:if="{{item=='占总评成绩百分比'}}">所占比例</view>
+      <view class='td' wx:elif="{{item==null}}"> </view>
+      <view class='td' wx:else>{{item}}</view>
+    </block>
+  </view>
+</view>
+<view class='tip'>此页面的总平时成绩来自教务系统，可能会出现延迟情况</view>

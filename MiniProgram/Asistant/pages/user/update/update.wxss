@@ -1,0 +1,39 @@
+.body{
+  width: 90%;
+  margin:50rpx auto;  
+}
+.tr{
+  display: flex;
+  justify-content: space-around;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 50rpx auto 0;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  background: #6173a1;
+   box-shadow: #6173a1 0 0 4rpx;
+}
+.version{
+  font-size: 32rpx;
+  color: rgb(209, 209, 209);
+}
+.time{
+  color: rgb(209, 209, 209);
+}
+.content{
+  margin: auto;
+  padding: 10rpx 0 ;
+  background: white;
+  box-shadow:  #585858 0 0 4rpx;
+}
+.title{
+  padding: 10rpx 30rpx 0;
+  font-size: 30rpx;
+  color: black;
+  font-weight: bolder;
+}
+.text{
+  padding:10rpx 60rpx ;
+  font-size: 28rpx;
+  color:#414141;
+}

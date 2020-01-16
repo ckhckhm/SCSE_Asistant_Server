@@ -1,0 +1,16 @@
+<!--pages/user/feedback/feedback.wxml-->
+<view class='body'>
+  <form bindsubmit='submit'>
+    <radio-group name="type">
+      <radio color='#6173a1' checked='true' value='0' >遇到问题</radio>
+      <radio color='#6173a1' value='1'>新功能建议</radio>
+    </radio-group>
+    <textarea name='content' placeholder='请详细描述一下你遇到的问题' placeholder-class='content' value='{{formData}}'></textarea>
+    <input name='relation' placeholder='联系方式(选填)' value='{{formRelation}}'></input>
+    <button form-type='submit'>提交</button>
+  </form> 
+  <navigator class='set' hover-class='sethover' url='feedbackmsg' wx:if="{{admin==true}}">
+    <image src='../../image/set.png'></image>
+    <view >开发者专用</view>
+  </navigator>
+</view>

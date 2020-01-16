@@ -1,0 +1,63 @@
+.date{
+  height: 150rpx;
+  margin-bottom: 50rpx;
+  text-align: center;
+  line-height: 150rpx;
+  background: #6173a1;
+  font-size: 32rpx;
+  color: white;
+}
+.tr{
+  width: 90%;
+  margin: auto;
+  padding:0 2.5%;
+  display: flex;
+  align-items: flex-end;
+}
+.panel{
+  padding-top: 30px;
+  border-bottom: 2px solid #6173a1;
+  border-left: 2px solid #6173a1;
+}
+.td{
+  width:10%;
+}
+.month_used, .month{
+  text-align: center;
+  font-size: 23rpx;
+}
+.rect{
+  width: 80%;
+  margin: 0 10%;
+  background: #6173a1;
+}
+.rect_less{
+  height: 2px;
+}
+.month_panel{
+  margin: 5rpx auto 20rpx;
+}
+.msg_panel{
+  width: 95%;
+  padding: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 10rpx auto;
+  border: 2rpx solid #6173a1;
+}
+.msg{
+  width: 30%;
+  text-align: center;
+  background: #6173a1;
+  color: white;
+}
+.used_count, .paid, .balance{
+  width:70%; 
+  text-align: center;
+}
+.tip{
+  width: 90%;
+  margin: auto;
+  font-size: 26rpx;
+  color: #888888;
+}

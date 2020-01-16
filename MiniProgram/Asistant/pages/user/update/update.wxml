@@ -1,0 +1,17 @@
+<!--pages/user/update/update.wxml-->
+<view class='body'>
+    <block  wx:for="{{update}}">
+      <view class='tr'>
+        <view class='version' style="color:{{index==0?'white':'rgb(209,209,209)'}}">{{item.version}}</view>      
+        <view class='time' style="color:{{index==0?'white':'rgb(209,209,209)'}}">{{item.time}}</view>
+      </view>
+      <view class='content'>
+        <block wx:for="{{item.content}}">
+          <view class='title'>{{item.title}}</view>
+          <view class='text'>{{item.text}}</view>
+          <view wx:if="{{item.title2}}" class='title'>{{item.title2}}</view>
+          <view wx:if="{{item.text2}}" class='text'>{{item.text2}}</view>
+        </block>
+      </view>  
+    </block>
+</view>

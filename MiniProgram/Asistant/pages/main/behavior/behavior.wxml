@@ -1,0 +1,18 @@
+<view class='header'>
+  提示：点击课程可查看详细信息
+</view>
+<view class='body'>
+  <view class='subject_panel'>
+    <view class='grade'>成绩</view>
+    <view class='code'>课程代码</view>
+    <view class='subject'>课程名称</view>
+  </view>
+  <block wx:for="{{behavior}}" >
+    <view class='subject_panel' data-idx='{{index}}' bindtap='select'>
+      <view class='grade grade_no' wx:if="{{gradeCount[index]==null}}">-</view>
+      <view class='grade grade_ex' wx:else>{{gradeCount[index]}}</view>
+      <view class='code'>{{item[0]}}</view>
+      <view class='subject'>{{item[1]}}</view>     
+    </view>
+  </block>
+</view>

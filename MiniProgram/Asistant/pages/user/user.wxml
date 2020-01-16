@@ -1,0 +1,30 @@
+<view class="header">
+  <view class="user" bindtap='login'>
+      <view class='userphoto'>
+        <view class="userAvatarUrl">
+          <open-data type='userAvatarUrl'></open-data>
+        </view>
+      </view>
+      <view class='userInfo'>
+        <block wx:if="{{status==1}}">
+          <view >{{userClass[1][1]}}  {{admin? "管理员": ""}}</view>
+          <view class='userID'>{{userID}}</view>
+        </block>
+        <view wx:else style='color:#ccc'>未登陆</view>  
+      </view>
+      <view class="set" src="/pages/image/set.png"></view>
+  </view>
+</view>
+<view class='body'>
+  <block wx:for="{{list}}" wx:key="">
+    <view class='tr_box'>
+      <view class='tr' id='{{item.name}}' bindtap='navigator'>
+        <image class="img" src='../image/{{item.name}}.png'></image>
+        <view class='td'>{{item.zh}}</view>
+      </view>    
+    </view>
+  </block>
+</view>
+<view class='footer'>
+  <view class='login' bindtap='exit' style="display:{{status==1?'':'none'}}">退出登录</view>
+</view>

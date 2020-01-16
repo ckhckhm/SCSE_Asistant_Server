@@ -1,0 +1,35 @@
+<view class='header'>
+  <picker range='{{term}}' bindchange="btn" value="{{select}}">
+    <view class='date'>{{term[select]}} - {{term[select]+1}}学年水电费详细</view>
+  </picker>
+</view>
+<view class='body' wx:for="{{bill.Amount_paid}}" style="display:{{term[select]===item[0]?'':'none'}}">
+  <view class='content' wx:if="{{bill.Amount_used[select] != null}}">
+    <view class='tr panel'>
+      <block wx:for="{{bill.Amount_used[index]}}">
+        <view class='td'>
+          <view class='month_used'>{{item[1]}}</view>
+          <view class='rect rect_less' wx:if="{{item[1] < 2}}"></view>
+          <view class='rect' wx:else style="height:{{1.5 * item[1]}}px;"></view> 
+        </view>  
+      </block>  
+    </view>
+    <view class='tr month_panel'>
+      <view class='td month' wx:for="{{bill.Amount_used[index]}}">{{item[0]}}</view> 
+    </view>
+    <view class='tr msg_panel'>
+      <view class='msg'>使用总计</view>
+      <view class='used_count'>{{count[index][0]}}</view>
+    </view>
+    <view class='tr msg_panel'>
+      <view class='msg'>已支付</view>  
+      <view class='paid' style="color:{{item[1]>0?'#00cf00':'black'}}">{{count[index][1]}}</view>    
+    </view>
+    <view class='tr msg_panel'>
+      <view class='msg'>余额</view>  
+      <view class='balance' style="color:{{count[index][2] < 0?'#ff275f':'black'}}">{{count[index][2]}}</view>
+    </view>
+    <view class='tip'>提示：数据可能出现延迟，以实际缴费情况为准。</view>
+  </view>
+  <view wx:else class='tip'>提示：在V楼(或Q楼)住宿的学生暂无相关水电费信息</view>  
+</view>  

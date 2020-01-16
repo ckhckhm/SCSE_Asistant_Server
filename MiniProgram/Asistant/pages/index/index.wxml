@@ -1,0 +1,75 @@
+<view class='header'></view>
+<swiper class='blacktable' style="height:{{100 + schedule.length * 40}}rpx">
+  <swiper-item wx:if="{{status != 1}}" bindtap='navigator'>
+    <view class='unsign'>
+      <view class='login'>请绑定学号获取课程信息</view>
+    </view>
+  </swiper-item>
+  <swiper-item wx:if="{{hasExam.length > 0}}" id="exam" bindtap='navigator'>
+    <view class='examtable'>
+      <view class='datetype'>
+        <view class='date'>{{date}}</view>
+        <view>考试</view>
+      </view>
+      <view class='schedule'>
+        <block wx:for="{{hasExam}}" wx:key='*this'>
+          <view  class='subject'  wx:if="{{item[0] == '0'}}">
+            <view class='time'>{{item[3]}}</view>
+            <view class='name'>{{item[2]}}</view>
+            <view class='room'>{{item[6]}}</view>
+          </view>
+          <view class='subject now' wx:if="{{item[0] == '1'}}">
+            <view class='time'>{{item[4]}}</view>
+            <view class='name'>{{item[2]}}</view>
+            <view class='room'>{{item[6]}}</view>
+          </view>
+          <view class='subject pass' wx:elif="{{item[0] == '2'}}">
+            <view class='time'>{{item[3]}}</view>
+            <view class='name'>{{item[2]}}</view>
+            <view class='room'>{{item[6]}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item wx:if="{{schedule}}" id="timetable" bindtap='navigator'>
+    <view class='timetable'>
+      <view class='datetype'>
+        <view class='date'>{{weekday}}</view>
+        <view>课表</view>
+      </view>
+      <view class='empty' wx:if="{{schedule.length == 0}}">
+        今天没课，休息一下
+      </view>
+      <view wx:else class='schedule'>
+        <block wx:for="{{schedule}}" wx:key='*this'>
+          <view class='subject pass' wx:if="{{time > classover[item[5]]}}">
+            <view class='time'>{{classtime[item[5]]}}</view>
+            <view class='name'>{{item[0]}}</view>
+            <view class='room'>{{item[3]}}</view>
+          </view>
+          <view class='subject now' wx:if="{{classover[item[5]]-80*60<time && time < classover[item[5]]}}">
+            <view class='time'>{{classtime[item[5]]}}</view>
+            <view class='name'>{{item[0]}}</view>
+            <view class='room'>{{item[3]}}</view>
+          </view>
+          <view class='subject ready' wx:elif="{{classover[item[5]]-80*60>time}}">
+            <view class='time'>{{classtime[item[5]]}}</view>
+            <view class='name'>{{item[0]}}</view>
+            <view class='room'>{{item[3]}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+<view class='main'>
+  <view class='main_tr'>
+    <block wx:for="{{main}}" wx:key="">
+      <view class="navigator" hover-class="none" id="{{item.name}}" bindtap='navigator' style="display:{{admin == false && (item.name == 'announce' || item.name == 'vote')?'none':''}}">
+        <image class='image' src='../image/{{item.name}}.png'></image>
+        <view>{{item.zh}}</view>
+      </view>
+    </block>
+  </view>
+</view>

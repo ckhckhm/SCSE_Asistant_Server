@@ -1,0 +1,122 @@
+/**index.wxss**/
+page{
+  background: white;
+}
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 200rpx;
+  background: #6173a1;
+}
+.main{
+  width: 100%;
+  margin:20rpx auto;
+  text-align: center;
+}
+.main_tr{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10rpx auto;
+}
+.navigator{
+  width: 25%;
+  padding: 5rpx 0;
+}
+.navigator:active{
+  color: #6173a1;
+} 
+.blacktable{
+  width: 637.5rpx;
+  min-height: 300rpx;
+  margin:50rpx auto 20rpx;
+  background-color: #585858;
+  border: 20rpx solid rgb(188, 126, 20);
+  box-shadow:rgba(70, 62, 62, 0.8) 0 6rpx 16rpx 4rpx;
+  border-radius: 10rpx;
+}
+.timetable, .examtable{
+  width: 637.5rpx;
+}
+.unsign{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: white;
+}
+.datetype{
+  display: flex;
+  font-size: 26rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  justify-content: space-between;
+  color: #93cef8;
+  font-weight: bolder;
+  padding: 18rpx 40rpx 10rpx 4%;
+}
+.date{
+  
+}
+.exchange{
+  width: 30rpx;
+  height: 30rpx;
+}
+.empty{
+  width: 100%;
+  text-align: center;
+  margin-top: 90rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: white;
+}
+/* .schedule{
+  min-height: 240rpx; 
+} */
+.subject{
+  display: flex;
+  width: 92%;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin:5rpx auto 0;
+  font-size: 30rpx;
+  color: #f8f8f8;
+}
+.pass{
+  text-decoration:line-through;
+  color:#b9b6b6;
+}
+.now{
+  color: rgb(0, 201, 107);
+}
+.ready{
+
+}
+.time{
+  width: 35%;
+}
+.name{
+  width: 48%;
+  padding-right: 2%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.room{
+  width: 15%;
+  text-align: center;
+}
+
+.login:active{
+  color: #1099FA;
+}
+.image{
+  width: 81rpx;
+  height: 81rpx;
+}

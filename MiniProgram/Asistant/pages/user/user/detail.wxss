@@ -1,0 +1,36 @@
+/* pages/user/user/detail.wxss */
+.tr{
+  width: 90%;
+  padding: 0 5%;
+  line-height: 110rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  background: white;
+  margin-bottom: 15rpx;
+  color: #232323;
+}
+
+.td2{
+  color: #585858;
+}
+
+.small{
+  font-size: 24rpx;
+  color: #585858;
+}
+
+.class{
+  flex-wrap: wrap;
+  padding: 20rpx 5%;
+}
+
+.c1{
+  line-height: 55rpx;
+}
+.c2{
+  font-size: 26rpx;
+  color: #585858;
+  line-height: 55rpx;
+}

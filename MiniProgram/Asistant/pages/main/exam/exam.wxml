@@ -1,0 +1,28 @@
+<!--pages/more/exam/exam.wxml-->
+  <view class='header'>
+    <view class='info' wx:if="{{info}}">
+      <view class='id'>{{info[0][0]}}：<text>{{info[1][0]}}</text></view>
+      <view class='name'>{{info[0][1]}}：{{info[1][1]}}</view>
+      <view class='marjor'>{{info[0][3]}}：{{info[1][3]}}</view>
+    </view>
+  </view>
+  <view class='exam'>
+    <block wx:for="{{exam}}"  wx:key="*this">
+    <view wx:if="{{item==null}}" style="text-aling:center">最近没有考试</view>
+      <view id="{{item[0]}}"  class="tr tr_exam" bindtap='showDetail' >
+        <view class='date' style="background:{{timeColor[index]}}">{{item[2]}}</view>
+        <view class='subjec' style="color:{{item[0]==id ?'#888888' : '#000000'}}">{{item[1]}}</view>
+        <view class="icon_arrow  {{item[0]==id ? 'show-arrow' :'' }}"><view class="arrow" ></view></view>
+      </view>
+      <view class="hide {{item[0]==id ? 'show' : ''}}">
+        <view class="all-hide {{item[0]==id ? 'all-show' : ''}}">
+          <block wx:for="{{item}}">
+            <view class='tr tr_detail' wx:if="{{index!=2 && index != 1}}">
+              <view class='detail'>{{message[index]}}</view>
+              <view class='message'>{{item}}</view>
+            </view>        
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>

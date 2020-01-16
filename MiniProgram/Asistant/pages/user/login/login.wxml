@@ -1,0 +1,32 @@
+<view class='header'>华软校园助手</view>
+<view class="body" wx:if="{{t}}">
+  <view class="wave_box">
+      <image class="wave" src="/pages/image/wave.png" mode="aspectFill"></image>
+      <image class="wave wave-bg" src="/pages/image/wave.png" mode="aspectFill"></image>
+  </view>
+  <view class='main'> 
+    <form bindsubmit='login' bindreset='clear'>
+      <view class='form'>
+        <view class='input'>
+          <view class="tr-input {{error==1?'error':''}}">
+            <text class="info" >学号</text>
+            <input name='userID' class='userId' bindinput='showClear' cursor-spacing='140rpx'  type='number' maxlength='10'  placeholder='请输入你的学号' value="{{userID}}"></input>
+            <button class='button-clear' form-type='reset'><image style="display:{{clear}}" src='../../image/clear.png'></image></button>
+          </view>
+          <view class="tr-input {{error==2?'error':''}}">
+            <text class="info">密码</text> 
+            <input name='userPwd' class='userPwd' bindinput='showEye' password="{{isHide}}" cursor-spacing='120rpx' placeholder='请输入Myscse密码' value='{{userPwd}}'></input>
+            <button class='button-clear' bindtap='showPwd'><image style="display:{{Eye}}" src="../../image/{{isHide?'hidePwd.png':'showPwd.png'}}"></image></button>
+          </view>    
+        </view>
+        <button form-type='submit' class="button-login {{load==''?'button_load':''}}"><view class="{{load==''?'loading':''}}">{{load}}</view></button>
+        <view class='state'>
+          <label>绑定前请先阅读并同意</label>
+          <navigator url='../guide/guide'>《使用协议》</navigator>
+        </view>
+      </view> 
+    </form>
+  </view>
+
+</view>
+

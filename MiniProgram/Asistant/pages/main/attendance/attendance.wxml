@@ -1,0 +1,49 @@
+<!--pages/more/attendance/attendance.wxml-->
+
+<view class='decoration'>
+  <view class='clamp'></view>
+</view>
+<view class='body'>
+  <view class='content'>
+    <!-- <view class='header'>
+      <view class='icon'>Attendance</view>
+    </view> -->
+    <view class='tr'>
+      <view class='name'>姓名：</view>
+      <view class='userName'>{{userName}}</view>
+    </view>    
+    <view class='tr'>
+      <view class='time'>时间：</view>
+      <view class='semester'>{{term}}</view>
+    </view>
+    <view class='tr'>
+      <view class='td'>课程名称</view>
+      <view class='td'>详细记录</view>
+    </view>
+    <view class='tr' wx:for="{{attendance}}" >
+      <block  wx:for="{{item}}">
+        <view class='td' wx:if="{{index===1}}">{{item}}</view>
+        <block wx:elif="{{index===2}}">
+          <view class='td' wx:if="{{item[0]==='全'}}" style="color:#00cf00">正常</view>
+          <block wx:elif="{{item.length==1}}">
+            <view class='td' wx:if="{{item[0][0]==='早'}}" style="color:#ffc107">{{item}}</view>          
+            <view class='td' wx:elif="{{item[0][0]==='迟'}}" style="color:#ffc107">{{item}}</view>          
+            <view class='td' wx:elif="{{item[0][0]==='请'}}" style="color:#fd7e14">{{item}}</view>
+            <view class='td' wx:elif="{{item[0][0]==='旷'}}" style="color:#ff275f">{{item}}</view>
+            <view class='td' wx:elif="{{item[0][0]==='全'}}" style="color:#00cf00">正常</view>
+            <view class='td' wx:else>{{item}}</view>               
+          </block>       
+          <view class='td' wx:elif="{{item.length>1}}">
+            <block  wx:for="{{item}}">
+              <text wx:if="{{item[0]==='早'}}" style="color:#ffc107">{{item[0]}}{{item[2]}}{{item[3]}}{{item[4]}} </text>          
+              <text wx:elif="{{item[0]==='迟'}}" style="color:#ffc107">{{item[0]}}{{item[2]}}{{item[3]}}{{item[4]}} </text>          
+              <text wx:elif="{{item[0]==='请'}}" style="color:#fd7e14">{{item[0]}}{{item[2]}}{{item[3]}}{{item[4]}} </text>
+              <text wx:elif="{{item[0]==='旷'}}" style="color:#ff275f">{{item[0]}}{{item[2]}}{{item[3]}}{{item[4]}} </text>  
+            </block>
+          </view>
+          <view class='td' wx:else style="color:#00cf00">正常</view>
+        </block>
+      </block>
+    </view>
+  </view>
+</view>

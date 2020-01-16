@@ -1,0 +1,53 @@
+/* pages/user/feedback/feedback.wxss */
+.body{
+  width: 90%;
+  margin: auto;
+}
+radio-group{
+  display: flex;
+  width: 90%;
+  padding: 50rpx 0;
+  justify-content: space-around;
+  font-size: 28rpx;
+}
+textarea{
+  width: 90%;
+  padding:30rpx 5% ;
+  background: white;
+  box-shadow: rgba(80, 79, 79, 0.514) 0 0 4rpx;
+  border-radius: 5rpx; 
+}
+input{
+  width: 90%;
+  height: 90rpx;
+  margin: 30rpx 0;
+  padding:0 5% ;
+  background: white;
+  box-shadow: rgba(80, 79, 79, 0.514) 0 0 4rpx;
+  border-radius: 5rpx; 
+}
+button{
+  width: 100%;
+  border-radius: 5rpx;
+  font-size: 16px;
+  background: #6173a1;
+}
+image{
+  display: block;
+  padding: 0 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.set{
+  display: flex;
+  justify-content: flex-end;
+  height: 30rpx;
+  padding: 20rpx 0;
+  line-height: 30rpx;
+  color:#6173a1;
+}
+.sethover{
+  background: transparent;
+  color: black;
+}
+
