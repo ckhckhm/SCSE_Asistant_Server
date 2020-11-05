@@ -44,7 +44,8 @@ app -- 源码目录
 
 **贡献**
 ### 该项目是大二的时候学习制作的，如果有BUG或者有更优的方法可以选择下面方式联系提供完善
-- 小程序前端负责： Email: wuming_C@163.com  WeChat: Clownwm
+### 如果有需要的解决方案可以留言本项目负责人邮箱：ckhckh85@gmail.com
+- 小程序前端负责： Email: wuming_C@163.com
 - 小程序后端负责： Email: ckhckh85@gmail.com
 
 ### 许可证
