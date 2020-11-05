@@ -5,25 +5,30 @@
     * 页面的初始数据
     */
    data: {
+     // 菜单加入动态加载
      main: [{
          name: "timetable",
          zh: "课表",
-       }, {
-         name: "exam",
-         zh: "考试",
-       }, {
-         name: 'behavior',
-         zh: "平时分"
-       }, {
-         name: "attendance",
-         zh: "考勤"
-       }, {
-         name: "bill",
-         zh: "费用"
-       }, 
+       },
        {
-         name: 'github',
-         zh: "Github"
+         name: "grade",
+         zh: "成绩"
+       },
+      {
+        name: "cet",
+        zh: "四六级"
+      }
+      , {
+        name: "map",
+        zh: "地图"
+      }
+      , {
+         name: "password",
+         zh: "密码"
+       },
+       {
+         name: "teacher",
+         zh: "老师查询"
        }
      ]
    },
@@ -65,7 +70,13 @@
            url: '../main/password/password',
          })
         }
-     } else if (options.currentTarget.id == 'github') {
+     } else if (options.currentTarget.id == 'teacher'){
+      {
+        wx.navigateTo({
+          url: '../main/teacher/teacher',
+        })
+       }
+     }  else if (options.currentTarget.id == 'github') {
       wx.setClipboardData({
         data: "https://github.com/ckhckhm/SCSE_Asistant_Server",
         success(res){
@@ -74,6 +85,15 @@
             icon: 'success'
           })
         }
+      })
+      // wx.showModal({
+      //   title: '尚未开放',
+      //   content: '敬请期待...',
+      //   showCancel: false
+      // })
+     } else if(options.currentTarget.id == 'map') {
+      wx.previewImage({
+        urls: ["https://www.sise.edu.cn/Public/images/map.jpg"],
       })
      }
       else {
@@ -95,7 +115,12 @@
     * 生命周期函数--监听页面加载
     */
    onLoad: function(options) {
+     this.checkMeuns();
      this.checkStatus();
+     wx.getSystemInfo({
+       success: (result) => {console.log(result)},
+     })
+
    },
 
    checkStatus: function(e) {
@@ -165,9 +190,32 @@
                })
              }
              break;
+            case 3:
+              {
+                app.globalData.server = -2;
+                wx.showModal({
+                  title: '服务器高峰限制访问',
+                  content: '你仍可以查看上次更新的数据，不支持刷新数据',
+                  showCancel: false
+                })
+              }
+              break;
          }
        }
      })
+   },
+
+   // 检查当前用户满足的主页菜单
+   checkMeuns: function(e) {
+    const that = this
+    Data.getMeuns({
+      success(res) {
+        that.setData({
+          main: res.data.data
+        })
+      },
+
+    })
    },
 
    /**
@@ -175,14 +223,49 @@
     */
    onReady: function() {
      //通知
+     const showInform = (options) => {
+       console.log(new Date(options.sMsg))
+       const id = wx.getStorageSync(options.gMsg) || null
+       new Date() >= new Date(options.sMsg) && options.mId != id && wx.showModal({
+         title: options.tMsg,
+         content: options.mMsg + "\r\n\r\n" + "[发布时间：" + options.sMsg + "]",
+         cancelText: "不再提示",
+         success(t) {
+           if (t.confirm) {
 
+           } else {
+             wx.setStorageSync(options.gMsg, options.mId)
+           }
+         }
+       })
+     }
+     Data.update() && Data.getNotice({
+       data: {
+         username: wx.getStorageSync("user").userID,
+         token: wx.getStorageSync("token")
+       },
+       success(res) {
+         const all = res.data.data.all
+         const person = res.data.data.person
+         if (all != null && person != null) {
+           showInform(all, showInform(person))
+         } else if (person != null) {
+           showInform(person)
+         } else if (all != null) {
+           showInform(all)
+         }
+       },
+       fail(res) {
+
+       }
+     })
    },
 
    checkExam: function(e) {
      const hour = 3600 * 1000;
      const min = 60 * 1000;
-     const now = Date.parse(new Date());
-     const today = Date.parse(Data.formatTime(new Date()).simpledate) + 24 * hour 
+     const now = Date.parse(new Date()); //现在
+     const today = Date.parse(Data.formatTime(new Date()).simpledate) + 24 * hour //当天24点
      let hasExam = new Array();
      const that = this
      const getExam = () => {

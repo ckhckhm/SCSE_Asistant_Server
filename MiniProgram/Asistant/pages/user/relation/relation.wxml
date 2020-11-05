@@ -9,4 +9,9 @@
   <view class='text'>感谢各位同学对我们小程序的支持，我们会继续运营下去的，如果有技术人员或者有意向参与这个小程序的开发权，可以直接添加开发者微信：clownwm 了解。</view>
   <view class='h2'>商务合作</view>
   <view class='text'>如果您有意向和我们进行合作需求，或者有项目意向的，可以直接添加开发者微信：clownwm 取得联系。</view>
+  <view class='h2'>GitHub开源</view>
+  <view class='text'>如果使用中遇到任何的问题，也可以到Github上发布Issue，与我们取得联系，点击主页图标即可复制项目地址
+  </view>
+  <view class='h2'>开发者</view>
+  <view class='text'>如果有需要，也可以通过Email方式联系我们：Email: ckhckh85@gmail.com</view>
 </view>

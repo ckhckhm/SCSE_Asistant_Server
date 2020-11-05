@@ -23,3 +23,12 @@
   color: #585858;
   text-indent: 60rpx;
 }
+@media (prefers-color-scheme: dark) {
+  .h1{
+    margin-top: 50rpx;
+    font-size: 36rpx;
+    font-weight: bolder;
+    color: #cccccc;
+    text-align: center;
+  }
+}

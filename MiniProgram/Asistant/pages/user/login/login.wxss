@@ -235,3 +235,40 @@ navigator{
     0%{transform:rotate(0deg)}
     100%{transform:rotate(360deg)}
 }
+
+@media (prefers-color-scheme: dark) {
+  page{
+    background: #1b1b1b;
+    color: #1b1b1b;
+  }
+  .button-login{
+    width: 80%;
+    margin-top: 30rpx;
+    padding: 8rpx 0;
+    font-size: 30rpx;
+    border-radius: 15rpx;
+    background-color: #1b1b1b;
+    color: white;
+  }
+  navigator{
+    color: #1b1b1b
+  }
+  .button-clear{
+    background: transparent;
+  }
+
+  .tr-input{
+    display: flex;
+    width: 80%;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin:0 auto 20rpx;
+    background: transparent;
+    color: #1b1b1b;
+    border-radius: 15rpx;
+    border: 1px solid #cccccc;
+  }
+  .phcolor {
+    color: #232323;
+  }
+}

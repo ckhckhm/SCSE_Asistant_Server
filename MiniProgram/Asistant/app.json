@@ -31,17 +31,17 @@
         "selectedIconPath": "pages/image/select-user.png"
       }
     ],
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "@tabBgColor",
     "selectedColor": "#6173a1",
     "borderStyle": "white",
-    "color": "#000000"
+    "color": "@tabFontColor"
   },
-  "window": {
+    "window": {
     "navigationBarTitleText": "华软校园助手",
-    "navigationBarTextStyle": "white",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#6173a1",
-    "backgroundColor": "#516086"
+    "navigationBarTextStyle": "@navTxtStyle",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "backgroundColor": "@bgColor"
   },
   "networkTimeout": {
     "request": 60000

@@ -11,6 +11,22 @@ page{
   height: 200rpx;
   background: #6173a1;
 }
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background: #1b1b1b;
+  }
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 200rpx;
+    background: #1b1b1b;
+  }
+}
+
 .main{
   width: 100%;
   margin:20rpx auto;

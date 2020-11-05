@@ -31,5 +31,6 @@
     </view>
     <view class='tip'>提示：数据可能出现延迟，以实际缴费情况为准。</view>
   </view>
-  <view wx:else class='tip'>提示：在V楼(或Q楼)住宿的学生暂无相关水电费信息</view>  
-</view>  
+  <view wx:else class='tip'>提示：在V(或Q楼)及19级后的住宿学生暂无相关水电费信息</view>
+</view>
+<view wx:if="{{bill.Amount_used[select] == null}}" class='tip'>提示：在V(或Q楼)及19级后的住宿学生暂无相关水电费信息</view>

@@ -10,21 +10,23 @@ radio-group{
   justify-content: space-around;
   font-size: 28rpx;
 }
+
 textarea{
   width: 90%;
   padding:30rpx 5% ;
   background: white;
   box-shadow: rgba(80, 79, 79, 0.514) 0 0 4rpx;
-  border-radius: 5rpx; 
+  border-radius: 5rpx;
 }
-input{
+#relation{
   width: 90%;
-  height: 90rpx;
+  height: 60rpx;
   margin: 30rpx 0;
-  padding:0 5% ;
+  padding:20rpx 5% ;
   background: white;
   box-shadow: rgba(80, 79, 79, 0.514) 0 0 4rpx;
-  border-radius: 5rpx; 
+  border-radius: 5rpx;
+
 }
 button{
   width: 100%;
@@ -49,5 +51,23 @@ image{
 .sethover{
   background: transparent;
   color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  .set{
+    color:#69696f;
+  }
+  .sethover{
+    background: transparent;
+    color: #cccccc;
+  }
+  button{
+    background: #1b1b1b;
+    border: 1px solid #cccccc;
+  }
+  textarea, #relation {
+    color: #1b1b1b;
+    background: #cccccc;
+  }
 }
 

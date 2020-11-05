@@ -7,6 +7,22 @@ Page({
   data: {
     update:[
       {
+        time: "2020-07-04",
+        version: "版本：V1.2.8",
+        content: [{
+          title: "优化：",
+          text: "暗黑模式的适配优化，修复小部分问题"
+        }]
+      },
+      {
+        time: "2020-07-01",
+        version: "版本：V1.2.7",
+        content: [{
+          title: "优化：",
+          text: "暗黑模式的适配"
+        }]
+      },
+      {
         time: "2019-12-11",
         version: "版本：V1.2.1",
         content: [{

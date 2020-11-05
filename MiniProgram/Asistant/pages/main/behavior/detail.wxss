@@ -48,3 +48,36 @@
   font-size: 26rpx;
   color: #888888;
 }
+
+@media (prefers-color-scheme: dark) {
+  .pick_panel{
+    width: 100%;
+    height: 300rpx;
+    line-height: 100rpx;
+    background: #1b1b1b;
+    text-align: center;
+    color: #bdbcbc;
+  }
+  .tr{
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+  }
+  .tr:nth-of-type(1){
+    height: 100rpx;
+    line-height: 100rpx;
+    font-weight: bolder;
+  }
+  .tr:nth-of-type(2n+1){
+    background: #ccc;
+    color: white;
+  }
+  .tr:nth-of-type(2n){
+    background: #69696f
+  }
+  .td{
+    width: 20%;
+    color: #1b1b1b;
+  }
+}

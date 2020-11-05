@@ -7,6 +7,18 @@ page{
   padding:0 7.5% ;
   background-color: #6173a1;
 }
+@media (prefers-color-scheme: dark) {
+  page {
+    background: #1b1b1b;
+  }
+  .header {
+    width: 85%;
+    padding:0 7.5% ;
+    background-color: #1b1b1b;
+  }
+}
+
+
 .user{
   font-size: 30rpx;
   display: flex;
@@ -21,7 +33,7 @@ page{
   width: 90rpx;
   height: 90rpx;
   margin:25rpx auto;
-  border-radius: 50rpx; 
+  border-radius: 50rpx;
   overflow: hidden;
 }
 .userInfo{
@@ -52,17 +64,31 @@ page{
 .tr_box:nth-of-type(1){
   margin-top: 20rpx;
 }
-#information,#guide, #update{
+/* #information,#guide, #update, #relation, #github{
   border-bottom: 1rpx solid rgba(204, 204, 204, 0.329)
-}
+} */
 .tr{
   display: flex;
   padding: 28rpx 0;
   font-size: 28rpx;
+  border-bottom: 1rpx solid rgba(204, 204, 204, 0.329)
 }
 .tr_box:active{
   color: #6173a1;
   background:rgba(0, 0, 0, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  .tr_box{
+    color: #cccccc;
+    width: 90%;
+    padding:5rpx 5%;
+    background: #1b1b1b;
+ }
+  .tr_box:active{
+    color: #b8b8b8;
+    background:rgba(0, 0, 0, 0.1);
+  }
+
 }
 .img{
   margin-left: 2.5%;

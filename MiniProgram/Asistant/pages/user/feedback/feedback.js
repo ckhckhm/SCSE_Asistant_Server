@@ -20,8 +20,6 @@ Page({
     if(content && content.length >4){
       Data.submitFeedback({
         data: {
-          sno: wx.getStorageSync('user').userID,
-          password: wx.getStorageSync('user').userPwd,
           ContactInformation: relation,
           text: content,
           Type: type,

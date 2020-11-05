@@ -2,3 +2,11 @@ page{
   font-size: 28rpx;  /*默认字体大小*/
   background: #f1f1f1;  /*默认背景颜色*/
 }
+
+@media (prefers-color-scheme: dark) {
+  page {
+    font-size: 28rpx;
+    background: #1b1b1b;
+    color: #cccccc;
+  }
+}

@@ -56,3 +56,21 @@
   color: #1099fa
 }
 
+@media (prefers-color-scheme: dark) {
+  .header{
+    height: 150rpx;
+    line-height: 150rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: rgb(212, 212, 212);
+    background: #1b1b1b;
+  }
+  .body{
+    width: 95%;
+    margin: 20rpx auto 0;
+    padding:10rpx 0 80rpx;
+    background: #1b1b1b;
+    border-radius: 5rpx;
+  }
+}
+

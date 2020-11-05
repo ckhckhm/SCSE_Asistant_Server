@@ -27,7 +27,7 @@
     </block>
   </view>
 
-  <scroll-view scroll-y style="height:{{height}}px;background:#f1f1f1;">
+  <scroll-view class='scroll-s' scroll-y style="height:{{height}}px;">
     <block wx:for = "{{timetable}}" wx:for-index="idxh" wx:for-item="msgh">    
       <view class='tr'>
         <block wx:for = "{{msgh}}" wx:for-index="idxw" wx:for-item="msgw" >     

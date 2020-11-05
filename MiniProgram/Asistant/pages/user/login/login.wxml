@@ -10,12 +10,12 @@
         <view class='input'>
           <view class="tr-input {{error==1?'error':''}}">
             <text class="info" >学号</text>
-            <input name='userID' class='userId' bindinput='showClear' cursor-spacing='140rpx'  type='number' maxlength='10'  placeholder='请输入你的学号' value="{{userID}}"></input>
+            <input name='userID' class='userId' bindinput='showClear' cursor-spacing='140rpx'  type='number' maxlength='10'  placeholder='请输入你的学号' value="{{userID}}" placeholder-class="phcolor"></input>
             <button class='button-clear' form-type='reset'><image style="display:{{clear}}" src='../../image/clear.png'></image></button>
           </view>
           <view class="tr-input {{error==2?'error':''}}">
-            <text class="info">密码</text> 
-            <input name='userPwd' class='userPwd' bindinput='showEye' password="{{isHide}}" cursor-spacing='120rpx' placeholder='请输入Myscse密码' value='{{userPwd}}'></input>
+            <text class="info">密码</text>
+            <input name='userPwd' class='userPwd' bindinput='showEye' password="{{isHide}}" cursor-spacing='120rpx' placeholder='请输入Myscse密码' value='{{userPwd}}' placeholder-class="phcolor"></input>
             <button class='button-clear' bindtap='showPwd'><image style="display:{{Eye}}" src="../../image/{{isHide?'hidePwd.png':'showPwd.png'}}"></image></button>
           </view>    
         </view>

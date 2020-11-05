@@ -67,4 +67,33 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+@media (prefers-color-scheme: dark) {
+  .clamp{
+    width: 300rpx;
+    height: 60rpx;
+    margin: auto;
+    background:#69696f;
+  }
+  .content{
+    width: 90%;
+    min-height: 750rpx;
+    background: #1b1b1b;
+    margin: auto;
+    padding: 50rpx 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+  .tr{
+    display: flex;
+    padding: 15rpx 0;
+    color: #cccccc;
+    border-bottom: 1rpx solid rgba(216, 216, 216, 0.432)
+  }
+  .body{
+    width: 90%;
+    margin: auto;
+    padding: 20rpx 0 100rpx;
+    background: linear-gradient(to top,#69696f,#69696f);
+    border-radius: 10rpx;
+    margin-bottom: 100rpx;
+  }
+}

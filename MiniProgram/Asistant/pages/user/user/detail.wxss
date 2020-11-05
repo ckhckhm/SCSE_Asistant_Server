@@ -12,6 +12,7 @@
   color: #232323;
 }
 
+
 .td2{
   color: #585858;
 }
@@ -33,4 +34,18 @@
   font-size: 26rpx;
   color: #585858;
   line-height: 55rpx;
+}
+@media (prefers-color-scheme: dark) {
+  .tr{
+    width: 90%;
+    padding: 0 5%;
+    line-height: 110rpx;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    background: #1b1b1b;
+    margin-bottom: 15rpx;
+    color: #cccccc;
+  }
 }

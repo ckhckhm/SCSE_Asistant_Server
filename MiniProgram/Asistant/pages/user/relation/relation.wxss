@@ -23,3 +23,8 @@
   color: #585858;
   text-indent: 60rpx;
 }
+.line {
+  width: 100%;
+  height: 2rpx;
+  background-color: #6173a1;
+}

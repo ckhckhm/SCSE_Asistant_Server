@@ -61,3 +61,37 @@
   font-size: 26rpx;
   color: #888888;
 }
+
+@media (prefers-color-scheme: dark) {
+  .date{
+    height: 150rpx;
+    margin-bottom: 50rpx;
+    text-align: center;
+    line-height: 150rpx;
+    background: #1b1b1b;
+    font-size: 32rpx;
+    color: #cccccc;
+    border-bottom: 1rpx solid rgba(204, 204, 204, 0.329)
+  }
+  .paid, .balance {
+    color: #cccccc !important;
+  }
+  .panel{
+    border-bottom: 2px solid #cccccc;
+    border-left: 2px solid #cccccc;
+  }
+  .rect{
+    background: #4e1a72;
+  }
+
+  .msg_panel{
+    border: 2rpx solid #cccccc;
+  }
+  .msg{
+    width: 30%;
+    text-align: center;
+    background: #69696f;
+    color: #cccccc;
+  }
+
+}

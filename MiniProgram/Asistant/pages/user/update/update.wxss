@@ -37,3 +37,29 @@
   font-size: 28rpx;
   color:#414141;
 }
+@media (prefers-color-scheme: dark) {
+  .tr{
+    display: flex;
+    justify-content: space-around;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 50rpx auto 0;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    background: #1b1b1b;
+    box-shadow: #cccccc 0 0 4rpx;
+  }
+
+  .content{
+    margin: auto;
+    padding: 10rpx 0 ;
+    background: #69696f;
+    box-shadow:  #cccccc 0 0 4rpx;
+  }
+
+  .text{
+    padding:10rpx 60rpx ;
+    font-size: 28rpx;
+    color:#232323;
+  }
+}

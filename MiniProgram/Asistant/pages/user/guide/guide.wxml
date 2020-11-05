@@ -10,6 +10,10 @@
   <view class='text'>如：17+44+0113102383</view>
   <view class='h2'>4.数据来源</view>
   <view class='text'>小程序的全部数据来源 API center。</view>
+    <view class='h2'>5.使用截至</view>
+  <view class='text'>该小程序将最终于2020-11-5结束运营，届时会停止访问小程序，感谢大家的支持</view>
+  <view class='h2'>6.如需帮助</view>
+  <view class='text'>可以通过Email方式联系我们：Email: ckhckh85@gmail.com</view>
 
   <view class='h1'>隐私协议</view>
   <view class='h2'>1.用户微信数据</view>
