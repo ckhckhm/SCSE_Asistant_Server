@@ -1,0 +1,28 @@
+.body{
+  width: 90%;
+  margin:60rpx auto;
+  padding: 60rpx 0 100rpx;
+  font-size: 30rpx;
+  box-shadow: rgba(0, 0, 0, 0.692) 0 0 1rpx;
+  background: rgba(121, 134, 167, 0.158);
+}
+.term{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 32rpx;
+  margin-bottom: 40rpx;
+  color: #1099fa;
+}
+.tr{
+  width: 90%;
+  display: flex;
+  padding: 20rpx 5%;
+  border-bottom: 1rpx solid rgba(105, 105, 105, 0.164);
+}
+.number{
+  width: 20%;
+  font-weight: bolder;
+}
+.name{
+  width: 80%;
+}

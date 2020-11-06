@@ -7,6 +7,18 @@ Page({
   data: {
     
     list: [
+      // {
+      //   name: 'information',
+      //   zh: '我的拾失'
+      // },
+      // {
+      //   name: 'voting',
+      //   zh: '我的投票'
+      // },
+      {
+        name: 'calendar',
+        zh: '课表导出'
+      },
       {
         name: 'guide',
         zh: '使用说明'
@@ -18,11 +30,15 @@ Page({
       {
         name: 'relation',
         zh: '关于我们'
-      }
+      },
+      {
+        name: 'github',
+        zh: 'GitHub'
+      },
     ]
   },
   /**
-   *
+   *绑定or解绑
    */
   exit: function (options) {
     const app = getApp()
@@ -30,7 +46,7 @@ Page({
         status: 0,
         userID: '' ,
       })
-      wx.clearStorageSync();      
+      wx.clearStorageSync();
       wx.setStorage({
         key: 'status',
         data: 0,
@@ -61,7 +77,7 @@ Page({
       wx.navigateTo({
         url: 'user/detail',
       })
-    } 
+    }
   },
 
   /**
@@ -70,12 +86,23 @@ Page({
   navigator: function (options) {
     const name = options.currentTarget.id;
     const admin = wx.getStorageSync("admin") || false
-      if( (name == 'information' || name == 'voting') && admin == false) {
-        wx.showToast({
-          title: '敬请期待',
-          icon: 'none'
-        }) 
-      }else{
+      if( (name == 'information' || name == 'calendar') && admin == false) {
+        wx.showModal({
+          content: '这个功能只有授予权限的用户，开发者可以使用，感谢支持',
+          showCancel: false
+        })
+      } else if(name == 'github') {
+        wx.setClipboardData({
+          data: "https://github.com/ckhckhm/SCSE_Asistant_Server",
+          success(res){
+            wx.showToast({
+              title: '复制成功',
+              icon: 'success'
+            })
+          }
+        })
+      }
+      else{
         wx.navigateTo({
           url: name + '/' + name
         })

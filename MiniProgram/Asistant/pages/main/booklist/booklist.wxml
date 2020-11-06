@@ -1,0 +1,8 @@
+<view class='header'></view>
+<view class='body' wx:if="{{booklist}}">
+  <view class='term'>{{term}}</view>
+  <view class='tr' wx:for="{{booklist}}">
+    <view class='number'>{{item[1]}}</view>
+    <view class='name'>{{item[2]}}</view>
+  </view>
+</view>

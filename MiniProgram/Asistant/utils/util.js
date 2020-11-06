@@ -13,18 +13,182 @@ const weekday = ["", "星期日", "星期一", "星期二", "星期三", "星期
 //课表颜色表
 const color = ["#a8d640", " #ff8793", "#3cd3aa", "#ba94e7", "#ffa844", "#f860a7", "#51b5a7", "#6eaed8", "#836feB", "#e9967a", "#5684ec"]
 
+/**
+ * 数据请求
+ */
+const wxRequest = (options, url) => {
+  const app = getApp()
+  const that = this
+  const load = () => wx.request({
+    url: url,
+    method: options.method || 'POST',
+    data: options.data || {
+      username: wx.getStorageSync("user").userID,
+      password: wx.getStorageSync("user").userPwd,
+      token: wx.getStorageSync("token")
+    },
+    header: {
+      'content-type': options.headerType || 'application/x-www-form-urlencoded'
+    },
+    success: (res) => {
+      console.log("请求接口:", url, res)
+      console.log(res.data.success == true && res.data.code == 1)
+      if (res.statusCode == 200) {
+        if (res.data.success == true && res.data.code == 1) {
+          options.success && options.success(res);
+        } else if (res.data.success == false) {
+          if (options.fail) {
+            options.fail(res)
+          } else {
+            wx.showModal({
+              content: res.data.err_msg,
+              showCancel: false
+            })
+          }
+        }
 
+        switch (res.data.code) {
+          case -1:
+            console.log(-1);
+            break;
+          case -2:
+            console.log(-2);
+            break;
+          case -3:
+            console.log(-3);
+            break;
+          case -4:
+            console.log(-4);
+            break;
+          case -5:
+            wx.showModal({
+              content: res.data.err_msg,
+              showCancel: false
+            })
+            break;
+          case -6:
+            console.log(-6);
+            options.dataRepeat && options.dataRepeat();
+            options.searchNone && options.searchNone();
+            break;
+          case -7:
+            console.log(-7);
+            options.exceed && options.exceed(res);
+            break;
+          case -8:
+            console.log(-8);
+            break;
+        }
+      } else {
+        wx.showToast({
+          title: '服务器异常',
+          icon: 'none'
+        })
+      }
+    },
+    fail: (res) => {
+      if (options.fail) {
+        options.fail(res)
+      } else {
+        wx.showModal({
+          title: '加载异常',
+          content: '请检查网络后再连接',
+          showCancel: false
+        })
+        console.log(res)
+      }
+    },
+    complete: (res) => {
+      options.complete && options.complete(res)
+    }
+  })
+  if (app.globalData.server == -2 && !options.data) {
+    options.error && options.error()
+    wx.stopPullDownRefresh()
+    wx.showToast({
+      title: '服务器维护中',
+      icon: 'none'
+    })
+  } else {
+    if (update()) {
+      load()
+    } else {
+      app.login(options, load)
+    }
+  }
+}
 
+/**
+ * Myscse
+ */
 
-
-
+//登陆
 const getStatus = (options) => wxRequest(options, host + "api")
+//保存登录
+const saveStatus = (options) => wxRequest(options, host + "api/api")
+//个人信息
+const getInfo = (options) => wxRequest(options, host + "studentinfo")
+//成绩
+const getGrade = (options) => wxRequest(options, host + "mark/info")
+//课表
+const getTimetable = (options) => wxRequest(options, host + "timetable")
+//新学期课表
+const getNewTimetable = (options) => wxRequest(options, host + "timetable/new")
+//考勤
+const getAttendance = (options) => wxRequest(options, host + "attendance/info")
+//平时成绩
+const getBehavior = (options) => wxRequest(options, host + "usual/grades")
+//考试安排
+const getExam = (options) => wxRequest(options, host + "exam/info")
+//书单
+const getBooklist = (options) => wxRequest(options, host + "books/list")
+//费用
+const getBill = (options) => wxRequest(options, host + "charge/details")
 
+const getMeuns = (options) => wxRequest(options, host + "main/menus")
+//老师电话查询
+const getTeacherPhone = (options) => wxRequest(options, host + "api/teacher")
+//通知
+const getNotice = (options) => wxRequest(options, host + "msg")
+const setNotice = (options) => wxRequest(options, host + "msg/push")
+/**
+ * 其他数据
+ */
+//Cet准考证储存
+const submitCet = (options) => wxRequest(options, hosts + "cet")
+//Cet准考证获取
+const getCet = (options) => wxRequest(options, hosts + "cet/get")
+//Cet准考证修改
+const updateCet = (options) => wxRequest(options, hosts + "cet/update")
+//反馈信息提交
+const submitFeedback = (options) => wxRequest(options, hosts + "feedback")
+//反馈信息获取
+const getFeedback = (options) => wxRequest(options, hosts + "feedback/admingetinfo")
+//反馈信息删除
+const delFeedback = (options) => wxRequest(options, hosts + "feedback/deleteitem")
+//拾卡数据添加
+const addFound = (options) => wxRequest(options, hosts + "findcard")
+//拾卡数据删除
+const delFound = (options) => wxRequest(options, hosts + "findcard/delete")
+//个人拾卡数据
+const getMyFound = (options) => wxRequest(options, hosts + "findcard/getinfo")
+//全部拾卡数据
+const getAllFound = (options) => wxRequest(options, hosts + "findcard/get")
+//失卡数据添加
+const addLost = (options) => wxRequest(options, hosts + "lostcard")
+//失卡数据删除
+const delLost = (options) => wxRequest(options, hosts + "lostcard/delete")
+//个人失卡数据
+const getMyLost = (options) => wxRequest(options, hosts + "lostcard/getinfo")
+//全部失卡数据
+const getAllLost = (options) => wxRequest(options, hosts + "lostcard/get")
+//搜索卡
+const searchCard = (options) => wxRequest(options, hosts + "api/query")
 
 /**
  * 数据处理
  */
-
+//课表统一
 const format = (ary, week) => {
   for (var i = 0; i < ary.length; i++) {
     ary[i].unshift(classtime()[i]);
@@ -32,7 +196,7 @@ const format = (ary, week) => {
   for (var i = 0; i < ary.length; i++) {
     for (var j = 0; j < ary[i].length; j++) {
       if (ary[i][j] && ary[i][j].length == 1) {
-        const sameTime = ary[i][j][0].length
+        const sameTime = ary[i][j][0].length //同一时间不同课程
         for (var k = 0; k < sameTime; k++) {
           if (ary[i][j][0][k][4].find((value) => value == week) && ary[i][j][0][k][2] != "在线课") {
             const aryTemp = ary[i][j][0][k]
@@ -50,7 +214,7 @@ const format = (ary, week) => {
   }
   return ary;
 }
-
+//课表日期列表
 const getDateList = (week, term) => {
   let schoolstart;
   if (term) {
@@ -73,7 +237,7 @@ const getDateList = (week, term) => {
     dateList
   };
 }
-
+//获取课程代码
 const getSubjectCode = (timetable) => {
   const grade = wx.getStorageSync("grade")
   const compulsory = grade.compulsory
@@ -128,7 +292,7 @@ const getSubjectCode = (timetable) => {
   }
   return codeAry;
 }
-
+//获取当日课表
 const getSchedule = (week, today) => {
   const ary = format(wx.getStorageSync("timetable"), week)
   let schedule = new Array()
@@ -142,7 +306,7 @@ const getSchedule = (week, today) => {
   }
   return schedule;
 }
-
+//颜色//颜色表与课表下标对应
 const getColortable = (ary, week) => {
   let colortable = new Array(ary.length);
   let newary = new Array(ary.length);
@@ -150,7 +314,7 @@ const getColortable = (ary, week) => {
     colortable[i] = new Array(ary[i].length);
     newary[i] = new Array(ary[i].length);
   }
-  let m = parseInt(Math.random() * 5)
+  let m = parseInt(Math.random() * 5) //随机颜色
 
   for (var i = 0; i < ary.length; i++) {
     for (var j = 1; j < ary[i].length; j++) {
@@ -205,7 +369,9 @@ const getColortable = (ary, week) => {
   }
   return colortable;
 }
-
+/**
+ * 获取日期列表与简化日期格式(如：2017/6/29)
+ */
 const formatTime = date => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -223,7 +389,7 @@ const formatTime = date => {
     showdate
   };
 }
-
+//token更新
 const update = () => {
   const date = new Date(formatTime(new Date()).simpledate);
   const tdate = Date.parse(date) + 3 * 3600 * 1000;
@@ -239,36 +405,38 @@ const update = () => {
   }
 }
 
-
+//按开学日期获取当前周数、星期(返回下标)
 const getWeek = () => {
   const year = new Date().getFullYear()
   let today = new Date(formatTime(new Date()).simpledate);
   let term;
   let schoolstart;
   let nextSchoolstart;
-
+  /***
+   * 临时修改
+   */
   const tdate = Date.parse(today) + 1
-  const ldate = Date.parse(new Date(year + "/3/4"))
-  const ndate = Date.parse(new Date(year + "/9/2"))
+  const ldate = Date.parse(new Date(year + "/3/9"))
+  const ndate = Date.parse(new Date(year + "/9/14"))
   /**
-   * 
+   *
    */
 
   if (tdate > ldate && tdate < ndate) {
-    schoolstart = new Date(year + "/3/2");
-    nextSchoolstart = new Date(year + "/9/2");
+    schoolstart = new Date(year + "/3/9");
+    nextSchoolstart = new Date(year + "/9/14");
     term = [year - 1 + '-' + year + '学年', '第二学期']
   } else if (today < ldate) {
-    schoolstart = new Date(year - 1 + "/9/2");
-    nextSchoolstart = new Date(year + "/3/2");
+    schoolstart = new Date(year - 1 + "/9/14");
+    nextSchoolstart = new Date(year + "/3/9");
     term = [year - 1 + '-' + year + '学年', '第一学期'];
   } else {
-    schoolstart = new Date(year + "/9/2");
-    nextSchoolstart = new Date((year + 1) + "/3/2");
+    schoolstart = new Date(year + "/9/14");
+    nextSchoolstart = new Date((year + 1) + "/3/9");
     term = [year + '-' + (year + 1) + '学年', '第一学期']
   }
   let startweekday = schoolstart.getDay();
-  let startweek = 6 - startweekday; 
+  let startweek = 6 - startweekday; //开学当周天数
   let week = (((today - schoolstart) / 24 / 60 / 60 / 1000) - startweek) / 7;
   week = Math.ceil(week) + 1;
   console.log(term)
@@ -295,5 +463,37 @@ module.exports = {
   format,
   getWeek,
   getSubjectCode,
-  getDateList
+  getDateList,
+  getTimetable,
+  getNewTimetable,
+  getColortable,
+  getStatus,
+  saveStatus,
+  getInfo,
+  getGrade,
+  getSchedule,
+  getMeuns,
+  getExam,
+  getAttendance,
+  getBehavior,
+  getBill,
+  getBooklist,
+  submitCet,
+  updateCet,
+  getCet,
+  submitFeedback,
+  delFeedback,
+  getFeedback,
+  addFound,
+  addLost,
+  delFound,
+  delLost,
+  getMyFound,
+  getMyLost,
+  getAllFound,
+  getAllLost,
+  searchCard,
+  getTeacherPhone,
+  getNotice,
+  setNotice
 }

@@ -1,0 +1,55 @@
+<!--pages/main/teacher/teacher.wxml-->
+<view class='header'>
+  <view class='search_panel'>
+    <input type="text" class='input' value='{{input}}' bindinput='input' maxlength='10' placeholder='请输入老师姓名或学工号'></input>
+    <image bindtap='checkDb' class='img_search' src='../../image/search.png'></image>
+  </view>
+</view>
+<scroll-view scroll-y="true" style='height:{{height}}px'>
+  <view wx:if="{{result.length > 0}}" class='result_panel'>
+    <view class='result_tr'>
+      <view class='td'>姓名</view>
+      <view class='td'>工号</view>
+      <view class='td'>联系方式</view>
+    </view>
+    <view class='result_tr' wx:for="{{result}}">
+      <view class='td'>{{item[0]}}</view>
+      <view class='td'>{{item[1]}}</view>
+
+      <block wx:if="{{item[2] == 'None'}}">
+        <view class='td'>暂无</view>
+        <view class='td'></view>
+      </block>
+
+      <block wx:elif="{{item[2].length > 11}}">
+        <view class='td' >
+          <block wx:for="{{item[2]}}">
+            <block class='number' wx:if="{{index<11}}">{{item}}</block>
+          </block>
+        </view>
+        <view class='td' bindtap='more' data-index="{{index}}" ><image class='img_more' src='../../image/more.png'></image></view>
+      </block>
+
+      <block wx:else>
+        <view class='td'>{{item[2]}}</view>
+        <view class='td' bindtap='copy' data-index="{{index}}" ><image class='img_copy' src='../../image/copy.png'></image></view>
+      </block>
+      
+    </view>
+  </view>
+
+  <view wx:else >
+    <view class='history_panel' wx:if="{{history}}">
+      <view>历史记录</view>
+      <image class='img_clear' bindtap='clearHistory' src='../../image/delete.png'></image>
+    </view>
+    <scroll-view scroll-x style='width: 700rpx; margin: auto; white-space: nowrap;'>
+      <view class='history_tr'>
+        <view  class='history_td' wx:for="{{history}}" bindtap='checkHistory' data-input="{{item}}">{{item}}</view>
+      </view>      
+    </scroll-view>
+  </view>
+</scroll-view>
+<modal hidden='{{modal}}' color="black" title="选择复制的号码" bindconfirm="isModal" confirm-text="取消"  no-cancel="{{true}}">
+  <view class='select'  wx:for="{{more}}" data-index='{{moreIndex}}' data-phone='{{item}}' bindtap='copy'>{{item}}</view>
+</modal>

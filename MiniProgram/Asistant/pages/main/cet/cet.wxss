@@ -1,0 +1,147 @@
+.header{
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background: #6173a1;
+  color: white;
+}
+.mycet_panel{
+  margin-top: 30rpx;
+  background: white;
+}
+.mycet{
+  width: 88%;
+  line-height: 80rpx;    
+  height: 80rpx;
+  margin: auto;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid rgba(107, 107, 107, 0.388);
+}
+.cet{
+  width: 88%; 
+  margin:20rpx auto 0;
+  background: rgba(161, 161, 161, 0.301)
+}
+input{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;   
+  text-align: center;
+  font-weight: bolder;
+  color: #6173a1;    
+}
+
+.tr{
+  width: 90%;
+  margin: 30rpx auto 10rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.copy, .alter{
+  width: 48%;
+  height: 90rpx;
+  line-height: 90rpx;   
+  text-align: center;
+  background: #6173a1;
+  color: white;
+  font-size: 30rpx; 
+}
+.retrieve{
+  display: flex;
+  width: 30%;
+  justify-content: flex-end;
+  align-items: center;
+  height: 80rpx; 
+  margin: 0 6% 0 64%;
+  font-size: 28rpx;
+  color: gray;
+  filter: grayscale(100%)  
+}
+.retrieve:active{
+  filter: grayscale(0);  
+  color: #6173a1;
+}
+.guide{
+  display: block;
+  width: 26rpx;
+  height: 26rpx;
+  margin: 0 10rpx;
+}
+.method_panel{
+
+}
+
+.method{
+  width: 85%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin:25rpx auto;
+  font-size: 30rpx;
+  text-align: center;
+  background: #6173a1;
+  color: white;
+}
+.method:active, .copy:active, .alter:active{
+  background: #7e8bac;
+  color: #bed0ff;
+}
+.tip_panel{
+  width: 50%;
+  border-radius: 10rpx;
+  background: white;
+  overflow: hidden;
+}
+.tip{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-bottom: 1rpx solid rgba(136, 136, 136, 0.425);
+  background: #6173a1;
+}
+.tip_method{
+  margin: 0 20rpx;
+  padding: 10rpx 0;
+  line-height: 35rpx;
+  border-bottom: 1rpx solid rgba(107, 107, 107, 0.288)
+}
+@media (prefers-color-scheme: dark) {
+  .header{
+    height: 150rpx;
+    line-height: 150rpx;
+    text-align: center;
+    font-size: 32rpx;
+    background: #232323;
+    color: white;
+  }
+
+  input{
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 32rpx;   
+    text-align: center;
+    font-weight: bolder;
+    color: white;    
+  }
+
+  .mycet_panel{
+    margin-top: 30rpx;
+    background: #232323;
+  }
+
+  .tip_panel{
+    width: 50%;
+    border-radius: 10rpx;
+    background: #69696f;
+    overflow: hidden;
+  }
+
+  .tip{
+    border-top: 1rpx solid rgba(136, 136, 136, 0.425);
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-bottom: 1rpx solid rgba(136, 136, 136, 0.425);
+    background: #232323;
+  }
+}

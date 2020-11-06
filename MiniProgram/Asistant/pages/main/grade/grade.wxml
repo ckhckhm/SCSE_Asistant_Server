@@ -1,0 +1,72 @@
+<!--pages/more/grade/grade.wxml-->
+<view class='header'>
+  <view class='icon'></view>
+</view>
+<view class='selectbox'>
+  <view class='buttonbox'>
+    <view class="button {{select==0 ? 'selectbutton': ''}}" bindtap='showNow'>在读课程</view>
+    <view class="button {{select==1 ? 'selectbutton': ''}}" bindtap='showAll'>全部成绩</view>
+  </view>
+</view>
+<view class="body" style="display:{{select==1 ? 'none': ''}}">
+  <view class='table'>
+    <view class='th'>{{term}}</view>
+    <view class='tr tr_msg'>
+        <view class='code'>课程代码</view>
+        <view class='name'>课程名称</view>
+        <view class='grade'>成绩</view>
+    </view>
+    <block wx:for="{{grade.compulsory}}"  wx:key="*this" >
+      <view class='tr' wx:for="{{item}}" wx:key="*this"  wx:if="{{item[3] == term}}">
+        <view class='code td_in'>{{item[0]}}</view>
+        <view class='name td_in'>{{item[1]}}</view>
+        <view class='grade td_in' style="{{(item[4] != null && item[4]<60 ) ||item[4]=='不及格' ? 'color:red' : ''}}">{{item[4]}}</view>
+      </view>
+    </block>
+    <block wx:for="{{grade.optional}}"  wx:key="*this">
+      <view class='tr' wx:if="{{item[3] == term}}">
+        <view class='code td_in'>{{item[0]}}</view>
+        <view class='name td_in'>{{item[1]}}</view>
+        <view class='grade td_in' style="{{(item[4] != null && item[4]<60 ) ||item[4]=='不及格' ? 'color:red' : ''}}">{{item[4]}}</view>
+      </view>
+    </block>
+  </view> 
+</view>
+<view class="body" style="display : {{select==0 ? 'none': ''}}">
+  <view class='table' wx:if="{{grade.credits}}">
+    <view class='th'>成绩总概</view>
+    <view class='tr' wx:for="{{grade.credits}}"  wx:key="*this">
+      <view class='td'>{{item[0]}}</view>
+      <view class='td'> </view>
+      <view class='td' style='color:#00cf00'>{{item[1]}}</view>
+    </view>
+  </view> 
+  <view class='table' wx:for="{{grade.compulsory}}"  wx:key="*this">
+    <view class='th'>第{{index+1}}学期</view>
+      <view class='tr tr_msg'>
+        <view class='td'>课程名称</view>
+        <view class='td'>学分</view>
+        <view class='td'>成绩</view>
+     </view>
+    <block wx:for="{{item}}"  wx:key="*this">
+      <view class='tr' style="{{item[0]==null || (item[4] != null && item[4]<60 ) ||item[4]=='不及格' ? 'color:red' : ''}}" >
+        <view class='td'>{{item[1]}}</view>
+        <view class='td'>{{item[2]}}</view>
+        <view class='td'>{{item[4] == null ? '' : item[4]}}</view>
+      </view>
+    </block>            
+  </view>
+  <view class='table' wx:if="{{grade.optional}}">
+    <view class='th'> 选修课程</view>
+    <view class='tr tr_msg'>
+      <view class='td'>课程名称</view>
+      <view class='td'>学分</view>
+      <view class='td'>成绩</view>
+    </view>
+    <view class='tr' wx:for="{{grade.optional}}" wx:key="*this"  style="{{item[0]==null || item[4]<60 ||item[4]=='不及格' ? 'color:red' : ''}}" >
+      <view class='td'>{{item[1]}}</view>
+      <view class='td'>{{item[2]}}</view>
+      <view class='td'>{{item[4] == null ? '' : item[4]}}</view>
+    </view>
+  </view>
+</view>

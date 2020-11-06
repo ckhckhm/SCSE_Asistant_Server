@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    this.login({})
     // this.systemInfo = wx.getSystemInfoSync()
     const updateManager = wx.getUpdateManager()
     updateManager.onUpdateReady(function(){
@@ -41,9 +42,57 @@ App({
     server: 1
   },
 
+  login :function (options,load){
+    const that = this
+    wx.login({
+      // 获取token 验证用户身份
+      success(res) {
+        wx.request({
+          url: '',
+          data: {
+            code: res.code
+          },
+          method: 'POST',
 
+          header: { 'content-type': 'application/x-www-form-urlencoded' },
+          success(res) {
+            wx.setStorageSync('token', res.data.token)
+            wx.setStorageSync('update', Date.parse(new Date()))
+            load && load()
+          },
+          fail(res){
+            wx.showModal({
+              title: '服务器维护中',
+              content: '请稍后再试',
+              showCancel: false
+            })
+          }
+        })
+      },fail(res){
+        wx.showModal({
+          title: '网络异常',
+          content: '请检查网络连接',
+          showCancel: false
+        })
+        options.fail && options.fail(res)
+      },
+      complete(res){
+        options.complete && options.complete(res)
+      }
+    })
+  },
 
   onError: function (e) {
-
+    // const Data = require('/utils/util.js')
+    // wx.getStorageSync("status") == 1 && Data.submitFeedback({
+    //   data: {
+    //     sno: wx.getStorageSync('user').userID,
+    //     password: wx.getStorageSync('user').userPwd,
+    //     ContactInformation: null,
+    //     text: e,
+    //     Type: 3,
+    //     token: wx.getStorageSync('token')
+    //   }
+    // })
   }
 })

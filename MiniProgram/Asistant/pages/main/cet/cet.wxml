@@ -1,0 +1,22 @@
+<view class='header'>CET</view>
+<view class='body'>
+  <view class='mycet_panel'>
+    <view class='mycet'>我的CET准考证</view>
+    <view class='cet'>
+      <input value='{{cet}}' maxlength='15' input-placeholder-class='cet_input' placeholder='请输入你的CET准考证号' type='number' bindinput='input'></input>
+    </view>
+    <view class='tr'>
+      <view class='copy' bindtap='copy'>复制</view>
+      <view class='alter' bindtap='submit'>保存</view>
+    </view>
+    <view class='retrieve' bindtap='retrieve'>
+      <image class='guide' src='../../image/guide.png'></image>
+      <view>忘记准考证</view>
+    </view>
+  </view>
+  <view class="tip">暂时不提供查询结果，只做准考证保存</view>
+  <!-- <view class='method_panel'>
+    <view id='1' class='method' bindtap='method'>查询渠道1</view>
+    <view id='2' class='method' bindtap='method'>查询渠道2</view>
+  </view> -->
+</view>

@@ -1,0 +1,124 @@
+/* pages/main/teacher/teacher.wxss */
+.header{
+  padding: 40rpx 0 50rpx;
+  background: #6173a1;
+}
+
+.search_panel{
+  display: flex;
+  width: 650rpx;
+  height: 100rpx;
+  margin: auto;
+  background: white;
+  border-radius: 10rpx;
+}
+
+.input{
+  width: 500rpx;
+  height: 100rpx;
+  padding-left: 50rpx;
+}
+.img_search{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 20rpx 20rpx;
+}
+.result_tr{
+  display: flex;
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid rgba(169, 169, 172, 0.322);
+  margin-left: 50rpx;
+  font-size: 30rpx;
+}
+.result_tr:nth-of-type(1) {
+  font-weight: bolder;
+  color: #6173a1;
+  border-color:rgba(97, 115, 161, 0.425);
+}
+.td:nth-of-type(1){
+  width: 150rpx;
+}
+.td:nth-of-type(2){
+  width: 150rpx;
+}
+.td:nth-of-type(3){
+  width: 280rpx;
+}
+.td:nth-of-type(4){
+  width: 100rpx;
+  text-align: center;
+}
+.img_more{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx auto;
+}
+.img_copy{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx auto;
+}
+.select{
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  color: white;
+  background: rgba(97, 115, 161, 0.774);
+}
+
+.history_panel{
+  display: flex;
+  justify-content: space-between;
+  width: 700rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 50rpx;
+  font-weight: bolder;
+}
+.history_tr{
+  display: flex;
+}
+.history_td{
+  padding: 10rpx 20rpx;
+  margin-left: 20rpx;
+  border-radius: 30rpx;
+  background: rgba(97, 115, 161, 0.253);
+  font-size: 26rpx;
+}
+.history_td:nth-of-type(1) {
+  margin-left: 25rpx;
+}
+.img_clear{
+  width: 40rpx;
+  height: 40rpx;
+  padding: 30rpx 30rpx;
+}
+@media (prefers-color-scheme: dark) {
+  .header{
+    padding: 40rpx 0 50rpx;
+    background: #1b1b1b;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .input{
+    width: 500rpx;
+    height: 100rpx;
+    padding-left: 50rpx;
+    color: #cccccc;
+  }
+
+  .search_panel{
+    display: flex;
+    width: 650rpx;
+    height: 100rpx;
+    margin: auto;
+    background: transparent;
+    border: 1px solid #cccccc;
+    border-radius: 10rpx;
+    color: #1b1b1b;
+  }
+} 
