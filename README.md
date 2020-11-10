@@ -46,15 +46,17 @@ app -- 源码目录
 > Times: 10/14/2020
 - 归档，项目已完结
 
-
 **贡献**
+
 ### 该项目是大二的时候学习制作的，目前已经趋于完善，项目已归档
 ### 如果有需要的解决方案可以留言本项目负责人邮箱：ckhckh85@gmail.com
 - 小程序前端负责： Email: wuming_C@163.com
 - 小程序后端负责： Email: ckhckh85@gmail.com
 
 **打赏**
+
 如果项目觉得有帮助，想要打赏作者，那么可以通过这个收款码打赏我，**金额不重要，心意最重要**。感谢大家几年的使用支持！
+
 ![image](https://github.com/ckhckhm/SCSE_Asistant_Server/blob/master/images/0dfa9b18a202564729faebe6bcdec96190309dd3.png)
 
 
